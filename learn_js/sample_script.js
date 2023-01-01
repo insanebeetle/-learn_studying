@@ -1,7 +1,7 @@
 window.alert("hello!"); //window.을 없어도 실행가능
 /*window.alert("hello!");
 //window.alert("hello!");*/
-console.log("섹스킹");
+console.log("킹");
 console.log("is");
 console.clear();
 
@@ -19,9 +19,9 @@ const text = "입력하세요";
 const data = prompt(text);
 console.log(data);
 
-const str = `이건 어뜨할까? ${prompt("헤헤")}`;
-console.log(str);
-
+const str = `이건 어뜨할까? ${prompt("헤헤")}`; //str 설정시 백틱사용
+console.log(str); //백틱사용시 텍스트를 코드 위치 모양으로 그대로 출력
+//${} 사이에 변수나 연산등을 삽입가능
 const name = prompt("이름");
 const age = prompt("나이");
 console.log(`내 이름은 ${"name"} 이고 나이는 ${"age"}입니다.`);

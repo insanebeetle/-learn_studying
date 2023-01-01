@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: "LAB디지털";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/LAB디지털.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "LAB디지털";
+  box-sizing: border-box;
+  font-size: 32px;
+}
+
+body {
+  margin: 0; /* 화면 끝에 딱 붙게만드는지 설정*/
+  color: white;
+  background-color: black;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock {
+  min-width: 400px;
+  margin: 0 auto;
+
+  border: 1px solid white;
+  padding: 50px 0;
+  border-radius: 8px;
+  text-align: center;
+}
+.today {
+  margin-bottom: 10px;
+}
+
+.time {
+  margin-top: 10px;
+}
