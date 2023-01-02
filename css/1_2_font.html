@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #a {
+      width: 200;
+      height: 100;
+      border: 3px solid red;
+      padding-top: 10px;
+      margin-bottom: 20px;
+      float: right;
+      /*블록요소에는 넓이 높이를 설정할수 있지만 인라인요소에는 적용안됨
+      그럼에도 인라인 요소에 넓이 높이를 설정하려면 display: inline-bock을 적용시킴;*/
+      /*display: inline-block; none; 존재하지만 내용물 안보임*/
+      /*float을 이용해 일종의 배치, 겹치기 효과를 낼 수 있음*/
+    }
+    span {
+      border-width: 5px;
+      border-style: dashed;
+      border-color: blue;
+      display: block;
+    }
+  </style>
+  <body>
+    <div id="a">나는 블록</div>
+    <span>나는 스팽이 좋아</span>
+  </body>
+</html>
