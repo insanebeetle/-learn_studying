@@ -1,0 +1,33 @@
+.container {
+  font-size: 32px;
+
+  height: 100px;
+  width: 100px;
+  display: inline;
+}
+
+.number {
+  border: 3px;
+  border-color: black;
+  padding: 10px;
+}
+
+h2 {
+  font-family: fantasy;
+  font-style: italic;
+}
+
+button {
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: salmon;
+}
+
+button:active {
+  width: 125px;
+  height: 50px;
+  font-size: 1.2rem;
+}
