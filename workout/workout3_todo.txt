@@ -1,0 +1,24 @@
+구현해야 할 것들
+
+#html편
+구역 나누기 가장 큰 div 설절
+to do list 제목 
+실선 구분짓는 태그
+appendChild를 통해 추가되는 텍스트를 담을 div
+to do를 입력할 텍스트와 제출할 추가버튼 + 정보를 전달하기 위한 form?쓰이나?
+
+
+#css
+큰 div 위치 및 크기 설정
+전체 * 폰트설정
+제목 위치 정렬
+실선 디자인 구현
+생성된created 된 div 디자인, 클릭(active)중 색변화. 지우기 위한 x버튼
+todo텍스트 입력 디자인, 추가 버튼 디자인- 같은
+
+#js
+텍스트를 입력해 submit버튼으로 문자열? 전달하기
+전달한textContent 문자열을 createElement로 생성된 div에 넣기
+appendChild로 텍스트div에 넣기
+
+x삭제버튼(remove) - 배열구현? 왜냐면 각 행에 해당하는 데이터 삭제기때문
