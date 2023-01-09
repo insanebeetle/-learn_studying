@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!--리엑트는 자바스크립트 내에서 html요소를 구현
+  리액트 돔은 구현된 요소를 html에 구현-->
+
+  <script type="text/babel">
+    const root = document.getElementById("root");
+    function App() {
+      const [counter, setCounter] = React.useState(0);
+      const onClick = () => {
+        setCounter(counter + 1);
+        //onClick의경우 그자체로 이벤트리스너이기 때문에 일반함수형태구현불가
+        /*counter = counter + 1;
+        console.log(counter);*/
+      };
+      return (
+        <div>
+          <h3>Total click : {counter}</h3>
+          <button onClick={onClick}>Click me</button>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
+<!-- 자바스크립내 문법 #각 배열요소에 변수명?붙이기
+  const food = ["감자","토마토"]
+  const [po,to] = food;
+  po호출시 감자 출력, to호출시 토마토출력됨
+-->
