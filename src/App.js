@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Button from "./Button";
+import styles from "./App.module.css";
+import { useState, useEffect } from "react";
+//useEffect(인자1 한번만 실행하고픈함수, ??)
 function App() {
+  const [counter, setValue] = useState(0);
+
+  const OnClick = () => setValue((prev) => prev + 1);
+  console.log("all time call api"); //렌더링중 api를 매번 불러오지 않도록 제어하고 싶을때
+
+  useEffect(() => {
+    console.log("call api once");
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className={styles.title}>{counter}</h1>
+      <Button text={"Continue"} />
+      <button onClick={OnClick}>Clickme</button>
     </div>
   );
 }

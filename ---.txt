@@ -1,0 +1,25 @@
+import React, {useEffect, useState} from 'react';
+
+// 👇️ is now a component (can use hooks)
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log(count);
+  }, [count]);
+
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <div>
+      <Counter />
+    </div>
+  );
+}
