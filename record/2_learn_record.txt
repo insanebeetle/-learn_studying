@@ -7,7 +7,7 @@ function App() {
   const onChange = (event) => setKeyword(event.target.value);
   useEffect(() => {
     console.log("I run only once.");
-function Hello() {
+function Hello() { //간단한 함수지만 컴포넌트를 생성제거를 할수있음
   useEffect(function () {
     console.log("hi :)");
     return function () {
@@ -28,11 +28,13 @@ function Hello() {
   }, []);
   return <h1>Hello</h1>;
 }
+//return자체가 useEffect의 종료선언이 되기에 이를 응용가능 
+//ex)useEffect가 끝나는 시점에 다른 컴포넌트,함수를 작동시키는 등
 
 function App() {
   const [showing, setShowing] = useState(false);
   const onClick = () => setShowing((prev) => !prev);
-  return (
+  return ( //버튼 태그가 컴포넌 생성제거 트리거역할
     <div>
       <input
         value={keyword}
