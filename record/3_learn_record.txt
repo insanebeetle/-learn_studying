@@ -1,0 +1,41 @@
+import Button from "./Button";
+import styles from "./App.module.css";
+import { useState, useEffect } from "react";
+
+function App() {
+  const [toDo, setToDo] = useState("");
+  const [toDos, setToDos] = useState([]);
+  const onChange = (event) => setToDo(event.target.value);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    if (toDo === "") {
+      return;
+    }
+    //toDo = "" state에 대해선 직접수정이 불가능함 따라서 함수이용
+    setToDo("");
+    setToDos((currentArray) => [toDo, ...currentArray]);
+    //state에서 배열을 추가하는 방법 [추가할 변수, ...배열명]
+  };
+  console.log(toDos);
+  return (
+    <div>
+      <h1>MY TO DOS {toDos.length}</h1>
+      <form onSubmit={onSubmit}>
+        <input
+          onChange={onChange}
+          value={toDo}
+          type="text"
+          placeholder="write your to do.."
+          autoFocus
+        />
+        <button>Add To Do</button>
+      </form>
+      <hr />
+      {toDos.map((item, index) => (
+        <li key={index}>{item}</li>
+      ))}
+    </div>
+    //배열명.map() 맵은 모든item에 대해 함수를 작동시키고 이루 리턴값으로 새로운 배열을 넣음
+  );
+}
+export default App;
