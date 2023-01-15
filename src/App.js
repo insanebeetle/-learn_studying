@@ -37,4 +37,7 @@ return <Router>
 }
 
 export default App;
-npm i react-router-dom@5.3.0 이후 버전 사용시 코드 */
+npm i react-router-dom@5.3.0 이후 버전 사용시 코드 
+
+##패키지json에서 퍼블리싱을 위한 코드 입력. 
++새로운 내용이 적용되면 npm run deploy로 업데이트*/
