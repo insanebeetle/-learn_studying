@@ -1,102 +1,55 @@
-import React, { Component } from "react";
+import React, { useCallback } from "react";
 import "./App.css";
-import "./button.css";
 
-export default class App extends Component {
-  state = {
-    todoData: [],
-    value: "",
-  };
+import { useState } from "react";
+import Lists from "./component/Lists.js";
+import Form from "./component/Form.js";
 
-  btnstyle = {
-    color: "#fff",
-    border: "none",
-    padding: "5px 9px",
-    borderRadius: "50%",
-    cursor: "pointer",
-    float: "right",
-  };
+export default function App() {
+  const [todoData, setTodoData] = useState([]);
+  const [value, setValue] = useState("");
 
-  getStyle = (completed) => {
-    return {
-      padding: "10px",
-      boderBottom: "1px #ccc dotted",
-      textDecoration: completed ? "line-through" : "none",
-    };
-  };
+  const handleClick = useCallback(
+    (id) => {
+      let newTodoData = todoData.filter((data) => id !== id);
+      setTodoData(newTodoData);
+    },
+    [todoData]
+  );
 
-  handleClick = (id) => {
-    let newTodoData = this.state.todoData.filter((data) => data.id !== id);
-    this.setState({ todoData: newTodoData });
-  };
-
-  handleChange = (e) => {
-    this.setState({ value: e.target.value });
-  };
-
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     //새로운 할일 데이터 만들기
     let newTodo = {
       id: Date.now(), //유니크한 값으로 데이프 메소드이용
-      title: this.state.value,
+      title: value,
       completed: false,
     };
-    this.setState({ todoData: [...this.state.todoData, newTodo], value: "" });
+    setTodoData((prev) => [...prev, newTodo]);
+    setValue("");
   };
 
-  handleCompleteChange = (id) => {
-    let newTodoData = this.state.todoData.map((data) => {
-      if (data.id === id) {
-        data.completed = !data.completed;
-      }
-      return data;
-    });
-    this.setState({ todoData: newTodoData });
+  const handleRemoveClick = () => {
+    setTodoData([]);
   };
 
-  render() {
-    return (
-      <div className="container">
-        <div className="todoBlock">
-          <div className="tilte">
-            <h1>할일 목록</h1>
-          </div>{" "}
-          {this.state.todoData.map((data) => (
-            <div style={this.getStyle(data.completed)} key={data.id}>
-              <input
-                type="checkbox"
-                onChange={this.handleCompleteChange(data.id)}
-                defaultChecked={false}
-              />{" "}
-              {data.title}
-              <button
-                style={this.btnstyle}
-                onClick={() => this.handleClick(data.id)}
-              >
-                X
-              </button>
-              <p />
-            </div>
-          ))}
-          <form style={{ display: "flex" }} onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              name="value"
-              style={{ flex: "10", padding: "5px" }}
-              placeholder="해야 할 일"
-              value={this.state.value}
-              onChange={this.handleChange}
-            />
-            <input
-              type="submit"
-              value="추가"
-              className="btn"
-              style={{ flex: "1" }}
-            />
-          </form>
+  return (
+    <div className="flex items-center justify-center w-screen h-screen bg-blue-100">
+      <div className="w-full p-3 m-4 bg-white rounded shadow md:w-3/4 md:max-w-lg lg:w-3/4 lg:max-w-lg">
+        <div className="flex justify-between mb-3">
+          <h1>할일 목록</h1>
+          <button onClick={handleRemoveClick} className="px-4 py-2 float-right">
+            all삭제
+          </button>
         </div>
+
+        <Lists
+          todoData={todoData}
+          setTodoData={setTodoData}
+          handleClick={handleClick}
+        />
+        <Form handleSubmit={handleSubmit} value={value} setValue={setValue} />
       </div>
-    );
-  }
+    </div>
+  );
 }
