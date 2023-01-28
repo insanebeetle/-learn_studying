@@ -3,6 +3,16 @@ import React, { useEffect, useState } from "react";
 import "./Row.css";
 import MovieModal from "./Moviemodal/MovieModal";
 
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
 function Row({ isLargeRow, title, id, fetchUrl }) {
   const [movies, setMovies] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
@@ -25,6 +35,56 @@ function Row({ isLargeRow, title, id, fetchUrl }) {
   return (
     <section className="row">
       <h2>{title}</h2>
+      <Swiper
+        // install Swiper modules
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        navigation
+        pagination={{ clickable: true }}
+        loop={true}
+        breakpoints={{
+          1378: {
+            slidesPerView: 6, //한번에 보이는 슬라이드 개수
+            slidesPerGroup: 6, //움직일때 변하는 슬라이드 개수
+          },
+          998: {
+            slidesPerView: 5,
+            slidesPerGroup: 5,
+          },
+          625: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+          },
+          0: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
+        }}
+      >
+        <div id={id} className="row_posters">
+          {movies.map((movie) => (
+            <SwiperSlide>
+              <img
+                key={movie.id}
+                className={`row_poster ${isLargeRow && "row_posterLarge"}`}
+                src={`https://image.tmdb.org/t/p/original/${
+                  isLargeRow ? movie.poster_path : movie.backdrop_path
+                }`}
+                alt={movie.name}
+                onClick={() => handleClick(movie)}
+              />
+            </SwiperSlide>
+          ))}
+        </div>
+      </Swiper>
+      {modalOpen && (
+        <MovieModal {...movieSelected} setModalOpen={setModalOpen} />
+      )}
+    </section>
+  );
+}
+export default Row;
+
+/*
       <div className="slider">
         <div className="slider_arrow_left">
           <span
@@ -36,20 +96,10 @@ function Row({ isLargeRow, title, id, fetchUrl }) {
             {"<"}
           </span>
         </div>
-        <div id={id} className="row_posters">
-          {movies.map((movie) => (
-            <img
-              key={movie.id}
-              className={`row_poster ${isLargeRow && "row_posterLarge"}`}
-              src={`https://image.tmdb.org/t/p/original/${
-                isLargeRow ? movie.poster_path : movie.backdrop_path
-              }`}
-              alt={movie.name}
-              onClick={() => handleClick(movie)}
-            />
-          ))}
-        </div>
-        <div className="slider_arrow_right">
+        
+        
+
+         <div className="slider_arrow_right">
           <span
             className="arrow"
             onClick={() => {
@@ -60,11 +110,5 @@ function Row({ isLargeRow, title, id, fetchUrl }) {
           </span>
         </div>
       </div>
-
-      {modalOpen && (
-        <MovieModal {...movieSelected} setModalOpen={setModalOpen} />
-      )}
-    </section>
-  );
-}
-export default Row;
+        
+        */

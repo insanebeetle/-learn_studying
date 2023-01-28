@@ -1,6 +1,5 @@
 import Nav from "./component/Nav";
 import "./App.css";
-
 import Footer from "./component/Footer";
 import { Outlet, Route, Routes } from "react-router-dom";
 import MainPage from "./pages/MainPage/MainPage";

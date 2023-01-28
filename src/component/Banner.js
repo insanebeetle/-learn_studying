@@ -15,7 +15,6 @@ function Banner() {
   const fetchData = async () => {
     const request = await axios.get(requests.fetchNowPlaying);
 
-    console.log(request);
     const movieId =
       request.data.results[
         Math.floor(Math.random() * request.data.results.length)
@@ -37,7 +36,7 @@ function Banner() {
       <header
         className="banner"
         style={{
-          backgroundImage: `url("http://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+          backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
           backgroundPosition: "top center",
           backgroundSize: "cover",
         }}
