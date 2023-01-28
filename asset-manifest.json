@@ -1,10 +1,15 @@
 {
   "files": {
-    "main.js": "/-learn_studying/static/js/main.1dec7996.js",
-    "index.html": "/-learn_studying/index.html",
-    "main.1dec7996.js.map": "/-learn_studying/static/js/main.1dec7996.js.map"
+    "main.css": "/Netflix/static/css/main.66899526.css",
+    "main.js": "/Netflix/static/js/main.7e4567b0.js",
+    "static/js/787.0904c1f0.chunk.js": "/Netflix/static/js/787.0904c1f0.chunk.js",
+    "index.html": "/Netflix/index.html",
+    "main.66899526.css.map": "/Netflix/static/css/main.66899526.css.map",
+    "main.7e4567b0.js.map": "/Netflix/static/js/main.7e4567b0.js.map",
+    "787.0904c1f0.chunk.js.map": "/Netflix/static/js/787.0904c1f0.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.1dec7996.js"
+    "static/css/main.66899526.css",
+    "static/js/main.7e4567b0.js"
   ]
 }
