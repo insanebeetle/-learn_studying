@@ -1,0 +1,16 @@
+{
+  "include": ["src"],
+  "compilerOptions": {
+    "outDir": "build",
+    "target": "ES6",
+    "lib": ["ES6"],
+    "strict": true,
+    "esModuleInterop": true,
+    "module": "CommonJS"
+  }
+}
+//include는 vscode가 확인해야할 파일을(폴더) 정해줌
+// 컴파일러 옵션의 outDir는 ts에서js로 변환시 저장될 공간 설정
+//target은 js로 바꿀때의 버전을 설정 런타임 환경을 설정
+//lib은 타입스크립트에게 어떤 api를 사용하고 어떤환경에서 실행하는지 지정
+//타입스크립은 dom api정도가 없으므로 이를 지정하기 위해 lib설정
